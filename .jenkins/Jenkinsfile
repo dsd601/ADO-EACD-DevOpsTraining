@@ -66,7 +66,7 @@ node {
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
-            sh  'AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} AWS_DEFAULT_REGION=${REGION} cd ${BUILD_ENV}; aws s3 sync ../clientSideFiles s3://wildrydes-ddamia2' //clientbucket-${BUILD_ENV}'
+            sh  'AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} AWS_DEFAULT_REGION=${REGION} cd ${BUILD_ENV}; aws s3 sync s3://wildrydes-us-east-1/WebApplication/1_StaticWebHosting/website s3://wildrydes-ddamia2 --region us-east-2' //clientbucket-${BUILD_ENV}'
             }
         } 
 
