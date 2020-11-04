@@ -15,7 +15,7 @@ node {
         
         stage('Checkout') {
             sh "echo checking out scm...${BRANCH_TO_USE}"
-            git([url: 'https://github.com/NIT-Administrative-Systems/ADO-EACD-DevOpsTrainingMaster', branch: '${BRANCH_TO_USE}',  credentialsId:"GitHub-awsCloudOpsCJT" ])
+            git([url: 'https://github.com/dsd601/ADO-EACD-DevOpsTraining', branch: '${BRANCH_TO_USE}',  credentialsId:"GitHub-awsCloudOpsCJT" ])
             gitCommit = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
             sh "echo Git Commit tag =  ${gitCommit}"
         }
@@ -66,7 +66,7 @@ node {
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
-            sh  'AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} AWS_DEFAULT_REGION=${REGION} cd ${BUILD_ENV}; aws s3 sync ../clientSideFiles s3://wildrydes-clientbucket-${BUILD_ENV}'
+            sh  'AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} AWS_DEFAULT_REGION=${REGION} cd ${BUILD_ENV}; aws s3 sync ../clientSideFiles s3://wildrydes-ddamia2' //clientbucket-${BUILD_ENV}'
             }
         } 
 
